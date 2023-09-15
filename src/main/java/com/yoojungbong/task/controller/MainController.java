@@ -28,12 +28,12 @@ public class MainController {
     }
 
     @PatchMapping("/task/{taskNumber}")
-    public String PatchMethod(@RequestBody PostRequestBodyDto requestBody){
+    public String patchMethod(@RequestBody PostRequestBodyDto requestBody){
         return "일정 수정" + requestBody.getName() + " " + requestBody.getCategory() + " " + requestBody.getText() + " " + requestBody.getDate() + " " + requestBody.getTime();
     }
 
     @DeleteMapping("/task/{taskNumber}")
-    public String DeleteMethod(){
+    public String deleteMethod(){
         return "This method is Delete method";
     }
 }
