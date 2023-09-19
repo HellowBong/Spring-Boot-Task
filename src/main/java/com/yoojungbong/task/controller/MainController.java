@@ -9,31 +9,47 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yoojungbong.task.dto.PostRequestBodyDto;
+import com.yoojungbong.task.dto.request.PatchTaskRequestDto;
+import com.yoojungbong.task.dto.request.PostTaskRequestDto;
 
 @RestController
-@RequestMapping("api/v1")
+@RequestMapping("api/v1/task")
 public class MainController {
 
-    @GetMapping("/task/{taskNumber}")
-    public String getMethod(
-        @PathVariable("taskNumber")String taskNumber 
+    // 일정 불러오기
+    // 프로토콜://호스트:포트/api/task/{taskNumber}
+    @GetMapping("/{taskNumber}")
+    public String getTask(
+        @PathVariable("taskNumber") Integer taskNumber 
     ){
-        return "Parameter value : " + taskNumber;
+        return null;
     }
 
-    @PostMapping("task")
-    public String postMethod(@RequestBody PostRequestBodyDto requestBody){
-        return "일정 작성" + requestBody.getName() + " " + requestBody.getCategory() + " " + requestBody.getText() + " " + requestBody.getDate() + " " + requestBody.getTime();
+    // 일정 작성하기
+    // 프로토콜://호스트:포트/api/v1/task
+    @PostMapping("")
+    public String postTask(
+        @RequestBody PostTaskRequestDto requestBody
+    ){
+        return null; 
     }
 
-    @PatchMapping("/task/{taskNumber}")
-    public String patchMethod(@RequestBody PostRequestBodyDto requestBody){
-        return "일정 수정" + requestBody.getName() + " " + requestBody.getCategory() + " " + requestBody.getText() + " " + requestBody.getDate() + " " + requestBody.getTime();
+    // 일정 수정하기
+    // 프로토콜://호스트:포트/api/task/{taskNumber}
+    @PatchMapping("/{taskNumber}")
+    public String patchTask(
+        @PathVariable("taskNumber") Integer taskNumber,
+        @RequestBody PatchTaskRequestDto requestBody
+    ){
+        return null;
     }
 
-    @DeleteMapping("/task/{taskNumber}")
-    public String deleteMethod(){
-        return "This method is Delete method";
+    // 일정 삭제하기
+    // 프로토콜://호스트:포트/api/task/{taskNumber}
+    @DeleteMapping("/{taskNumber}")
+    public String deleteTask(
+        @PathVariable("taskNumber") Integer taskNumber
+    ){
+        return null;
     }
 }
